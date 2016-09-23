@@ -1,0 +1,108 @@
+ul{
+	list-style: none;
+	padding-left: 0;
+	padding-top: 200px;
+}
+i{
+	display: inline-block;
+	height: 30px;
+	width: 30px;
+}
+#sidebar{
+	background: #aaa;
+	width: 35px;
+	/*padding-top: 200px;*/
+	position: fixed;
+	padding-top: 10px;
+	min-height: 100%;
+	z-index: 100;
+}
+.item{
+	font-size: 12px;
+	font-family: 'Microsoft YaHei';
+	text-align: center;
+	margin-top: 10px;
+	cursor: pointer;
+
+}
+#closeBar{
+	position: absolute;
+	bottom: 30px;
+	width: 35px;
+	text-align: center;
+	cursor: pointer;
+    transition: all 2s;
+
+}
+.closeBar-a{
+	/*left: 200px;*/
+	color: red;
+	transform: translateX(150px) rotate(405deg) scale(1.5);
+
+}
+.nav-content{
+	width: 200px;
+	position: fixed;
+	min-height: 100%;
+	background: red;
+	left: 45px;
+	left: -200px;
+	opacity: 0;
+	display: none;
+	transition: all 2s;
+	z-index: 50;
+}
+.nav-content .nav-icon{
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	cursor: pointer;
+
+}
+.nav-con-open{
+	-webkit-animation-name: nco;
+	-o-animation-name: nco;
+	animation-name: nco;
+	-webkit-animation-duration: 2s;
+	-o-animation-duration: 2s;
+	animation-duration: 2s;
+	-webkit-animation-iteration-count: 1;
+	-o-animation-iteration-count: 1;
+	animation-iteration-count: 1;
+	-webkit-animation-fill-mode: forwards;
+	-o-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+}
+
+@keyframes nco{
+	from{
+		opacity: 0;
+	}
+	to{
+		opacity: 1;
+		transform: translateX(250px);
+	}
+}
+.nav-con-close{
+	-webkit-animation-name: ncc;
+	-o-animation-name: ncc;
+	animation-name: ncc;
+	-webkit-animation-duration: 1s;
+	-o-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-iteration-count: 1;
+	-o-animation-iteration-count: 1;
+	animation-iteration-count: 1;
+	-webkit-animation-fill-mode: forwards;
+	-o-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+}
+@keyframes ncc{
+	from{
+		opacity: 1;
+	}
+	to{
+		opacity: 0;
+		transform: translateX(-250px);
+	}
+}

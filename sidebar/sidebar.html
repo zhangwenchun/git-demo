@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>sidebar demo</title>
+	<link rel="stylesheet"  href="css/index.css">
+	<link rel="stylesheet"  href="css/iconfont.css">
+	<script src='http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js'></script>
+	<script src='js/index.js'></script>
+</head>
+<body>
+	<div id="sidebar">
+		<ul>
+			<li class="item item-prof" mycon="con-prof">
+				<div>我</div>
+			</li>
+			<li class="item item-asset" mycon="con-asset">
+				<div>资产</div>
+			</li>
+			<li class="item item-brand" mycon="con-brand">
+				<div>品牌</div>
+			</li>
+			<li class="item item-broadcast" mycon="con-broadcast">
+				<div>直播</div>
+			</li>
+			<li class="item item-foot" mycon="con-foot">
+				<div>看过</div>
+			</li>
+			<li class="item item-calendar" mycon="con-calendar">
+				<div>日历</div>
+			</li>
+		</ul>
+		<div id="closeBar">
+			<i class="iconfont">&#xe609</i>
+		</div>
+	</div>
+	<div class="nav-content con-prof ">
+		<div class="nav-icon">
+			<i class="iconfont">&#xe606</i>
+		</div>
+		<div>
+			<p>我</p>
+		</div>
+	</div>
+	<div class="nav-content con-asset ">
+		<div class="nav-icon">
+			<i class="iconfont">&#xe606</i>
+		</div>
+		<div>
+			<p>资产</p>
+		</div>
+	</div>
+	<div class="nav-content con-brand ">
+		<div class="nav-icon">
+			<i class="iconfont">&#xe606</i>
+		</div>
+		<div>
+			<p>品牌</p>
+		</div>
+	</div>
+	<div class="nav-content con-broadcast ">
+		<div class="nav-icon">
+			<i class="iconfont">&#xe606</i>
+		</div>
+		<div>
+			<p>直播</p>
+		</div>
+	</div>
+	<div class="nav-content con-foot ">
+		<div class="nav-icon">
+			<i class="iconfont">&#xe606</i>
+		</div>
+		<div>
+			<p>看过</p>
+		</div>
+	</div>
+	<div class="nav-content con-calendar ">
+		<div class="nav-icon">
+			<i class="iconfont">&#xe606</i>
+		</div>
+		<div>
+			<p>日历</p>
+		</div>
+	</div>
+
+
+	<script>
+		var sidebarIsClosed = false;
+		//开启主体
+		$('#sidebar li').on('click',function (e) {
+			// body...
+			var $this = $(this);
+			$('.nav-content').hide();
+			var mycon = "."+$this.attr('mycon');
+			 $(mycon).show().addClass('nav-con-open');
+			// 	//jquery实现
+			// 	// $('.con-perf').animate({
+			// 	// 	opacity:'1',
+			// 	// 	left:'50px',
+			// 	// 	// 
+			// 	// });		 
+
+
+		});
+		//关闭bar
+		$('#closeBar').on('click',function (e) {
+			// body...
+			$this = $(this);
+			if (!sidebarIsClosed) {
+				$this.addClass('closeBar-a');
+				// $('#sidebar).css('left':'100px');
+				$('#sidebar').css('left','-100px');
+				$('.nav-content').hide();
+				sidebarIsClosed = true;
+			}else{
+				console.log(1);
+				$this.removeClass('closeBar-a');
+				$('#sidebar').css('left','0px');
+				sidebarIsClosed = false;
+			}
+		});
+		//关闭主体
+		$('.nav-content').on('click',function(e){
+			$this = $(this);
+			//是否是关闭按钮
+			if (e.target.tagName === 'I') {
+				$this.hide();
+				console.log($this);
+				// 
+				// $this.removeClass('nav-con-open'); 
+				// $this.css({left:'50px',opacity:'1'})
+				// $this.addClass('.nav-con-close');
+				
+
+				// console.log($this.offset().left);
+				// $this.animate({
+				// 	opacity:'0',
+				// 	left:'-100px',	
+				// });
+
+
+			}
+		});
+	</script>	
+</body>
+</html>
